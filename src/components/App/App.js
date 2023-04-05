@@ -36,24 +36,13 @@ export default function App() {
     return total ? Math.round((good / total) * 100) + '%' : 0;
   };
 
-  // useEffect(() => {
-  //   localStorage.setItem('feedback', JSON.stringify({ good, neutral, bad }));
-  // }, [good, neutral, bad]);
-
-  // useEffect(() => {
-  //   const savedFeedback = localStorage.getItem('feedback');
-  //   if (savedFeedback) {
-  //     const { good, neutral, bad } = JSON.parse(savedFeedback);
-  //     setGood(good);
-  //     setNeutral(neutral);
-  //     setBad(bad);
-  //   }
-  // }, []);
-
   return (
     <div className={css.wrapper}>
       <Section title="Please leave feedback">
-        <FeedbackOptions feedback={addFeedback} />
+        <FeedbackOptions
+          options={['good', 'neutral', 'bad']}
+          feedback={addFeedback}
+        />
         {countTotalFeedback() ? (
           <Statistics
             good={good}

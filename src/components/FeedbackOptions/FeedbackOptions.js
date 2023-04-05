@@ -1,25 +1,18 @@
 import css from './FeedbackOptions.module.css';
 
-const FeedbackOptions = ({ feedback }) => {
+const FeedbackOptions = ({ options, feedback }) => {
   return (
     <div className={css.btns}>
-      <button
-        className={css.btn}
-        type="button"
-        onClick={() => feedback('good')}
-      >
-        Good
-      </button>
-      <button
-        className={css.btn}
-        type="button"
-        onClick={() => feedback('neutral')}
-      >
-        Neutral
-      </button>
-      <button className={css.btn} type="button" onClick={() => feedback('bad')}>
-        Bad
-      </button>
+      {options.map((option, index) => (
+        <button
+          key={index}
+          className={css.btn}
+          type="button"
+          onClick={() => feedback(option)}
+        >
+          {option}
+        </button>
+      ))}
     </div>
   );
 };
